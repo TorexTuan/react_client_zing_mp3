@@ -1,0 +1,271 @@
+.musicbar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 9rem;
+    width: 100%;
+    @include flex(center, space-between);
+    background-image: url(../../../public/images/themes/musicbar-theme1.png);
+    background-position: 50%;
+    background-size: 1920px auto;
+    background-color: var(--layout-bg);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 500;
+    padding: 0 2rem;
+    cursor: pointer;
+
+    @include mobile {
+        height: 6rem;
+        bottom: 5.3rem;
+
+        &_mobile_custom_play_pause {
+            margin: 0 2.4rem !important;
+
+            & > i {
+                font-size: 2.8rem;
+            }
+        }
+
+        &_mobile_custom  {
+            display: flex !important;
+            flex: 1;
+            justify-content: flex-end;
+        }
+
+        &_mobile_custom_skip {
+            margin: 0;
+        }
+    }
+
+    &_custom {
+        flex: 1;
+
+        &_play {
+            @include flex(center, center);
+             margin-bottom: 1rem;
+     
+             &_icon {
+                background: none;
+                border: none;
+                margin: 0 1.8rem;
+
+                 @include tablet {
+                    margin: 0 1.2rem;
+                 }
+
+                 @include mobile {
+                     margin: 0;
+                 }
+
+                & .bi-shuffle, 
+                & .bi-arrow-repeat {
+                    font-size: 1.6rem;
+                }
+
+                 & > i {
+                    font-size: 2.6rem;
+                    color: $text-color;
+                    cursor: pointer;
+
+                    @include mobile {
+                        font-size: 2.8rem;
+                    }
+                }
+
+             }
+         }
+
+        &_time {
+           @include flex(center, center);
+
+           &_min, 
+           &_max {
+                font-size: 1.2rem;
+                color: $text-color;
+            }
+
+            &_bar {
+                margin: 0 1.4rem;
+                height: 0.4rem;
+                width: 80%;
+                cursor: pointer;
+                border-radius: 0.2rem;
+            }
+        }
+
+        
+    }
+
+    &_info {
+        height: inherit;
+       @include flex(center, null);
+        width: 30%;
+
+        @include mobile {
+            width: 18rem;
+        }
+
+        &_disk_note_wrapper {
+            position: relative;
+        }
+        
+        &_disk_wrapper {
+            width: 6.4rem;
+            height: 6.4rem;
+            margin-right: 1rem;
+            border-radius: 50%;
+            overflow: hidden;
+            transition: margin-left linear .2s;
+
+            @include mobile {
+                width: 4.4rem;
+                height: 4.4rem;
+
+                &.playing {
+                    margin-left: 1rem;
+                }
+            }
+        }
+
+        &_disk {
+            width: 100%;
+        }
+
+        &_wrapper {
+            width: fit-content;
+            overflow: hidden;
+        }
+
+        &_name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: $text-color;
+            margin-bottom: 5px;
+
+            @include mobile {
+                font-size: 1.2rem;
+                margin-bottom: 4px;
+            }
+        }
+
+        &_singers {
+            font-size: 1.2rem;
+            color: $text-secondary;
+
+            @include mobile {
+                font-size: 1.1rem;
+            }
+        }
+
+        &_icon_wrapper {
+            margin-left: 3rem;
+            @include flex(center, null);
+        }
+
+        &_icon {
+            width: 3.2rem;
+            height: 3.2rem;
+            @include flex(center, center);
+            margin-right: 0.5rem;
+            cursor: pointer;
+            border-radius: 50%;
+            position: relative;
+            top: 2px;
+            right: 1px;
+
+            & > i {
+                font-size: 1.2rem;
+                color: $text-color;
+            }
+        }
+    }
+
+    &_tools {
+        @include flex(center, flex-end);
+        width: 30%;
+
+        &_icon {
+            border: none;
+            background: none;
+            width: 3.2rem;
+            height: 3.2rem;
+            margin-left: 1rem;
+            border-radius: 50%;
+            cursor: pointer;
+
+            & > i {
+                font-size: 1.8rem;
+                color: $text-color;
+                position: relative;
+                top: 2px;
+            }
+        }
+
+        &_wrapper {
+            @include flex(center, null);
+        }
+
+        &_volume_bar {
+            height: 0.4rem;
+            width: 10rem;
+            margin: 0.5rem;
+
+            @include tablet {
+                width: 8rem;
+            }
+        }
+    }
+
+}
+
+.thumb_note_icon {
+    opacity: 0;
+    width: 1.2rem;
+    color: $text-color;
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    display: none;
+}
+
+.custom_play_pause_wrapper {
+    border: 1px solid $text-color;
+    padding: 0.3rem 0.6rem;
+    border-radius: 50%;
+
+    & .bi-play-fill {
+        position: relative;
+        top: 1px;
+        left: 1px;
+    }
+}
+
+.thumb_note_1 {
+    animation: circleAround 6s linear infinite;
+}
+
+.thumb_note_2 {
+    animation: circleAround 6s 1.6s linear infinite;
+}
+
+.thumb_note_3 {
+    animation: circleAround 6s 3.2s linear infinite;
+}
+
+.thumb_note_4 {
+    animation: circleAround 6s 4.8s linear infinite;
+}
+
+@keyframes circleAround {
+    from {
+        opacity: 0.8;
+        width: 1.2rem;
+        transform: rotate(0deg) translateY(5rem) rotate(0deg);
+    }
+    to {
+        opacity: 0;
+        width: 1.4rem;
+        transform: rotate(200deg) translateY(5rem) rotate(-200deg);
+    }
+}

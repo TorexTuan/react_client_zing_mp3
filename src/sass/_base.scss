@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=M+PLUS+Rounded+1c:wght@100;300;500;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;  
+    -webkit-user-select: none;  
+    -webkit-tap-highlight-color: transparent;
+}
+
+html {
+    font-family: 'Inter', sans-serif;
+    font-size: 62.5%;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: url('../../public/images/themes/theme1.svg') repeat fixed;
+    background-size: 1920px auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+
+    &:hover {
+        color: $text-color;
+    }
+}
+
+
+.zing_mp3_inner {
+    display: flex !important;
+}
+
+.hide-btn,
+.hide-element,
+.hide-on-computer {
+    display: none !important;
+}
+
+.display-element {
+    display: block !important;
+}
+
+@include tablet {
+
+    .hide-on-tablet {
+        display: none !important;
+    }
+
+    .display-on-tablet {
+        display: block !important;
+    }
+
+}
+
+@include mobile {
+    .hide-on-mobile {
+        display: none !important;
+    }
+
+    .display-on-mobile {
+        display: block !important;
+    }
+}
+
+/* general */
+
+.disabled-btn {
+    opacity: 0.3 !important;
+    cursor: default !important;
+    user-select: none !important;
+}
+
+.zing-mp3-btn {
+    padding: .6rem 2rem;
+    border-radius: 2rem;
+    background-color: $bg-content-color;
+    cursor: pointer;
+}
+
+.limit-text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    &-2-line {
+        line-height: 2rem;
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+    }
+}
+
+.flex-wrap {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.margin-bot {
+    &-30 {
+        margin-bottom: 3rem;
+    }
+
+    &-20 {
+        margin-bottom: 2rem;
+    }
+}
+
+/* handle user options */
+.user_display {
+    display: none;
+
+    &.active {
+        display: block !important;
+    }
+}
+
+@keyframes rotateDisk {
+    from {
+        transform: rotate(0);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+// swiper button
+
+.swiper-next-btn,
+.swiper-prev-btn {
+    position: absolute;
+    top: 0;
+    font-size: 2.2rem;
+    color: $text-color;
+    cursor: pointer;
+}
+
+.swiper-next-btn.swiper-button-disabled,
+.swiper-prev-btn.swiper-button-disabled {
+    color: $text-secondary;
+    cursor: unset;
+    pointer-events: none;
+}
+
+.swiper-next-btn {
+    right: 1.5rem;
+}
+
+.swiper-prev-btn {
+    right: 6.4rem;
+}
+

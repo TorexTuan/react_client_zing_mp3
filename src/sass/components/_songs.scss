@@ -1,0 +1,15 @@
+.user_songs_title {
+    width: 100%;
+    margin: 0 0 1.5rem 4rem;
+    // @include flex(center, space-between);
+    
+    & > span {
+        color: $text-secondary;
+        font-size: 1.2rem;
+        display: inline-block;
+
+        &:first-child {
+            width: calc(53% - 4rem);
+        }
+    }
+}

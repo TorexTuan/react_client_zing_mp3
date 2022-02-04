@@ -1,0 +1,203 @@
+
+/* header */
+.container {
+    width: $container-width;
+    margin-left: $sidebar-width;
+    overflow: hidden;
+
+    @include tablet {
+        margin-left: $tablet-sidebar-width;
+    }
+
+    @include mobile {
+        margin-left: 0;
+    }
+}
+
+/* content */
+.content {
+    width: 100%;
+    margin-top: 9rem;
+}
+
+.header {
+    will-change: background-color, box-shadow;
+    height: $header-height;
+    padding: 0 3rem;
+    margin-bottom: 2rem;
+    z-index: 100;
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: calc(100% - #{$sidebar-width});
+    @include flex(center, center);
+
+    @include tablet {
+        width: calc(100% - #{$tablet-sidebar-width});;
+    }
+
+    @include mobile {
+        padding: 0 1rem;
+        width: 100%;
+        background-color: $layout-bg;
+    }
+
+    &-fixed {
+        background-color: $layout-bg;
+        box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 1px;
+
+        @include tablet {
+            width: calc(100% - #{$tablet-sidebar-width});
+        }
+    }
+
+    &_search {
+        @include flex(center, null);
+        flex: 1;
+    }
+
+    &_arrow_icon {
+        font-size: 2.2rem;
+        margin-right: 2rem;
+        color: $text-color;
+        cursor: pointer;
+    }
+
+    &_options {   
+        @include flex(center, null);
+        padding-left: 4rem;
+
+        @include mobile {
+            padding-left: 2rem;
+        }
+    }
+
+    &_option {
+        list-style: none;
+        width: 4rem;
+        height: 4rem;
+        margin-left: 1rem;
+        border-radius: 50%;
+        background: $bg-content-color;
+        cursor: pointer;
+        @include flex(center, center);
+    }
+
+    &_option label{
+        cursor: pointer;
+    }
+
+    &_option_icon {
+        font-size: 2rem;
+        color: $text-color;
+    }
+
+    &_search {
+        
+        &_wrapper {
+            width: 54rem;
+            height: 4rem;
+            border-radius: 2rem;
+            @include flex(center, null);
+            background-color: $bg-content-color;
+            position: relative;
+
+            @include tablet {
+                width: 100%;
+            }
+
+            @include mobile {
+                width: 100%;
+            }
+
+            @include pc-low {
+                width: 100%;
+            }
+        }
+
+        &_icon {
+            font-size: 1.8rem;
+            color: $placeholder-text;
+            padding: 0.8rem 1.2rem;
+            z-index: 100;
+            margin-top: 3px
+        }
+
+        &_input {
+            height: 100%;
+            width: inherit;
+            border-radius: 0 2rem 2rem 0;
+            font-size: 1.4rem;
+            background-color: transparent;
+            outline: none;
+            border: none;
+            color: $placeholder-text;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            padding-right: .5rem;
+            z-index: 100;
+        }
+
+        &_input::placeholder {
+            color: $placeholder-text;
+        }
+
+        &_history {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: $primary-bg;
+            padding-top: 4rem;
+            border-radius: 2rem;
+            z-index: 99;
+            display: none;
+        }
+    }
+
+    &_history {
+
+        &_list {
+            padding: 1rem;
+        }
+        
+        &_item {
+            list-style: none;
+            padding: 1rem;
+            cursor: pointer;
+        }
+        
+        &_item:hover {
+            background-color: $bg-content-color;
+        }
+        
+        &_icon {
+            font-size: 1.6rem;
+            margin-right: 1rem;
+            color: $text-secondary;
+        }
+        
+        &_text {
+            font-size: 1.4rem;
+            color: $text-color;
+        }
+    }
+        
+    &_user_image {
+        width: 4rem;
+        height: 4rem;
+        border-radius: 50%;
+    }
+    
+}
+
+#header_option_upfile {
+    display: none;
+}
+
+.user_nav_item_wrapper  {
+    margin-bottom: 8rem;
+}
+
+
