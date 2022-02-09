@@ -1,19 +1,35 @@
-import { useState } from 'react';
-
+import { useEffect, useState, useContext } from 'react';
+import { CurrentSongContext } from '../../../contextProviders/CurrentSongProvider';
+import { PlayingContext } from '../../../contextProviders/PlayingProvider';
+import storage from '../../../storage/storage'
 import songs from '../../../fake-data/songs';
+import eventBus from '../../../middlewares/eventBus';
 
 const SongsContent = () => {
 
-    const [activeSong, setActiveSong] = useState(0)
+    const currentSong = useContext(CurrentSongContext)
+    const [playing, setPlaying] = useContext(PlayingContext)
+
+    const [currentIndex, setActiveSong] = useState(storage.get())
+
+    const handleCurrentIndex = (index) => {
+        setActiveSong({currentIndex: index})
+        setPlaying(true)
+    }
+
+    useEffect(() => {
+        storage.set(currentIndex)
+        eventBus.dispatch('currentIndex', songs[currentIndex.currentIndex])
+    }, [currentIndex])
 
   return (
     <>
         {
             songs.map((song, index) => (
                 <li 
-                    key={index} 
-                    className={`user_overview_content_song ${activeSong === index ? 'active' : ''}`}
-                    onClick={() => setActiveSong(index)}
+                    key={song.id} 
+                    className={`user_overview_content_song${currentSong.id === index ? ' active' : ''}${(currentSong.id === index) && playing?' playing': ''}` }
+                    onClick={() => handleCurrentIndex(index)}
                 >
                     <div className="user_overview_song_image_wrapper">
                         <div className="user_overview_icon_wrapper hide-on-mobile hide-on-tablet">

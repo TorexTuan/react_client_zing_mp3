@@ -369,6 +369,10 @@
         display: inline-block;
         border-radius: 2rem;
         cursor: pointer;
+
+        & > .bi-check2 {
+            margin-right: .5rem;
+        }
     }
 
 }

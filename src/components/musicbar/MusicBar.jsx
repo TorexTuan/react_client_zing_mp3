@@ -1,12 +1,23 @@
+import { useState } from "react";
+
 import MusicbarInfo from "./MusicbarInfo";
-import MusicbarCustom from "./MusicbarCustom";
 import MusicbarTools from "./MusicbarTools";
+import Popup from "./Popup";
+import MusicbarCustomSong from "./musicbarCustom/MusicbarCustomSong";
+import MusicbarCustomTime from "./musicbarCustom/MusicbarCustomTime";
 
 const MusicBar = () => {
+
+    const [popup, setPopup] = useState('down')
+
   return (
-    <div className="musicbar">
+    <>
+    <div className="musicbar" onClick={() => setPopup('up')}>
         <MusicbarInfo />
-        <MusicbarCustom />
+        <div className="musicbar_custom hide-on-mobile">
+            <MusicbarCustomSong />
+            <MusicbarCustomTime />
+        </div>
         <MusicbarTools />
         <div className="musicbar_mobile_custom display-on-mobile hide-on-computer hide-on-tablet">
             <button className="musicbar_custom_play_icon musicbar_mobile_custom_skip">
@@ -21,6 +32,8 @@ const MusicBar = () => {
             </button>
         </div>
     </div>
+    <Popup popup={popup} handlePopup={setPopup}/>
+    </>
   );
 };
 

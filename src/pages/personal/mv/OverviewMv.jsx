@@ -52,7 +52,7 @@ const OverviewMv = () => {
             >
                 {
                     mvs.map((mv, index) => (
-                        <SwiperSlide key={index} className="user_overview_content_post margin-bot-20 col col-15 l-4 m-6 c-12">
+                        <SwiperSlide key={index} className="user_overview_content_post col col-15 l-4 m-6 c-12">
                             <MvContent mv={mv} />
                         </SwiperSlide>
                     ))

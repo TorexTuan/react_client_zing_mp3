@@ -1,7 +1,7 @@
 
 const songs = [
     {   
-        id: 1,
+        id: 0,
         thumnail: './images/song-image/image1.jpg',
         name: 'Âm thầm bên em',
         singers: 'Sơn Tùng MT-P',
@@ -9,7 +9,7 @@ const songs = [
         time: '04:51'
     },
     {   
-        id: 2,
+        id: 1,
         thumnail: './images/song-image/image2.jpg',
         name: 'Chắc ai đó sẽ về',
         singers: 'Sơn Tùng MT-P',
@@ -17,7 +17,7 @@ const songs = [
         time: '04:34'
     },
     {   
-        id: 3,
+        id: 2,
         thumnail: './images/song-image/image3.jpg',
         name: 'Buông đôi tay nhau ra',
         singers: 'Sơn Tùng MT-P',
@@ -25,7 +25,7 @@ const songs = [
         time: '03:46'
     },
     {   
-        id: 4,
+        id: 3,
         thumnail: './images/song-image/image4.jpg',
         name: 'Em không sai chúng ta sai',
         singers: 'Erik',
@@ -33,7 +33,7 @@ const songs = [
         time: '02:56'
     },
     {   
-        id: 5,
+        id: 4,
         thumnail: './images/song-image/image5.jpg',
         name: 'Chúng ta của hiện tại',
         singers: 'Sơn Tùng MT-P',
@@ -41,7 +41,7 @@ const songs = [
         time: '05:01'
     },
     {   
-        id: 6,
+        id: 5,
         thumnail: './images/song-image/image6.jpg',
         name: 'Em của ngày hôm qua',
         singers: 'Sơn Tùng MT-P',
@@ -49,7 +49,7 @@ const songs = [
         time: '03:45'
     },
     {   
-        id: 7,
+        id: 6,
         thumnail: './images/song-image/image7.jpg',
         name: 'Ánh nắng của anh',
         singers: 'Đức Phúc',
@@ -57,7 +57,7 @@ const songs = [
         time: '04:24'
     },
     {   
-        id: 8,
+        id: 7,
         thumnail: './images/song-image/image8.jpg',
         name: 'Thương em là điều anh không thể ngờ',
         singers: 'Noo Phước Thịnh',
