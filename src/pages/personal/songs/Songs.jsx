@@ -1,7 +1,12 @@
-import React from 'react';
+import { useContext, useRef, useEffect } from 'react';
+
+import { PlayingContext } from "../../../contextProviders/PlayingProvider";
+
 import SongsContent from './SongsContent';
 
 const Songs = () => {
+
+
   return (
     <div className='grid'>
         <div className="user_overview_songs row">

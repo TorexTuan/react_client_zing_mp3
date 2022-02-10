@@ -108,6 +108,16 @@
 
         &_disk_note_wrapper {
             position: relative;
+
+            &.playing {
+                will-change: auto;
+                margin-left: 2rem;
+                transition: margin-left linear .2s;
+
+                & .musicbar_info_disk {
+                    animation: rotateDisk linear 10s infinite;
+                }
+            }
         }
         
         &_disk_wrapper {
@@ -226,7 +236,6 @@
     position: absolute;
     top: 2rem;
     left: 2rem;
-    display: none;
 }
 
 .custom_play_pause_wrapper {

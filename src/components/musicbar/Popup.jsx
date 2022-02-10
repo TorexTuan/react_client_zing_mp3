@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useRef, useState, useEffect } from "react";
 
 import { CurrentSongContext } from "../../contextProviders/CurrentSongProvider";
+import { PlayingContext } from "../../contextProviders/PlayingProvider";
 import MusicbarInfo from "./MusicbarInfo";
 import MusicbarTools from "./MusicbarTools";
 import MusicbarCustomSong from "./musicbarCustom/MusicbarCustomSong";
@@ -9,8 +10,25 @@ import MusicbarCustomTime from "./musicbarCustom/MusicbarCustomTime";
 const Popup = (props) => {
 
     const { popup, handlePopup } = props
-
+    const [playing] = useContext(PlayingContext)
     const currentSong = useContext(CurrentSongContext)
+    const [duration, setDuration] = useState(0)
+
+
+    const audioRef = useRef()
+
+    const handleLoadata = () => {
+        setDuration(audioRef.current.duration)
+        if(playing) audioRef.current.play()
+    }
+    
+    useEffect(() => {
+        if(playing) {
+            audioRef.current.play()
+        }else {
+            audioRef.current.pause()
+        }
+    }, [playing])
 
   return (
     <div className={`popup ${popup}`}>
@@ -33,7 +51,7 @@ const Popup = (props) => {
                 </div>
                 <div className="popup_middle_song">
                     <div className="popup_middle_song_disk">
-                        <div className="popup_middle_song_disk_image" style={{background: `url(${currentSong.thumnail}) center center / cover no-repeat`}}></div>
+                        <div className={`popup_middle_song_disk_image${playing ? ' playing' : ''}`} style={{background: `url(${currentSong.thumnail}) center center / cover no-repeat`}}></div>
                     </div>
                     <p className="popup_middle_song_name">
                         {currentSong.name}
@@ -57,12 +75,18 @@ const Popup = (props) => {
             <div className="musicbar popup_musicbar">
                 <MusicbarInfo hideOnMobile={'hide-on-mobile'} />
                 <div className="musicbar_custom">
-                    {/* <MusicbarCustomTime /> */}
+                    <MusicbarCustomTime audioRef={audioRef} duration={duration}/>
                     <MusicbarCustomSong />
                 </div>
                 <MusicbarTools />
             </div>
         </div>
+        <audio 
+            ref={audioRef} 
+            src={currentSong.link} 
+            className="song_audio"
+            onLoadedData={handleLoadata}
+        ></audio>
     </div>
   );
 };
